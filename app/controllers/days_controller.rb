@@ -28,12 +28,20 @@ class DaysController < ApplicationController
         redirect_to days_path
     end
 
+    #resultページを追加
+    def daysresult 
+    end
+
+    #subsページを追加
+    def dayssubs
+    end
+    
     def group
         @days = Day.group("MONTH(date)").sum(:value)
     end
 
     private
     def day_params
-        params.require(:day).permit(:date, :name, :value, :detail, :asset)
+        params.require(:day).permit(:date, :name, :value, :detail)
     end
 end
