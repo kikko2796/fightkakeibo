@@ -34,8 +34,9 @@ class DaysController < ApplicationController
 
     #subsページを追加
     def dayssubs
+        
     end
-    
+
     def group
         @days = Day.group("MONTH(date)").sum(:value)
     end
