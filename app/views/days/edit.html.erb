@@ -1,0 +1,24 @@
+<h1>家計編集</h1>
+<%= form_for(@day) do |f| %>
+    <div><%= f.label :日付 %></div>
+    <div><%= f.date_field :date %></div>
+    <div><%= f.label :科目 %></div>
+    <div><%= f.select :name, [
+        '食費','消耗品','ペット','ま','き',
+        'ガス','電気','水道','ドコモ','NTT','生保','損保',
+        '仕事関係','教養娯楽','交際','衣料','医療','車関係','税金','雑費','特別'
+        ] %></div>
+    <div><%= f.label :金額 %></div>
+    <div><%= f.number_field :value %></div>
+    <div><%= f.label :詳細 %></div>
+    <div><%= f.text_field :detail %></div>
+    <div><%= f.label :資産科目 %></div> 
+    <div><%= f.select :asset, [
+        '現金','りそなま普通','みらいま普通','ゆうちょま普通',
+        'りそなま定期','ゆうちょま定期','みらいま定期','りそなき普通',
+        'ゆうちょき普通','りそなき定期','ゆうちょき定期','その他資産',
+    ] %></div>
+
+    <dib><%= f.submit '編集' %></div>
+    <% end %>
+    <%= link_to '戻る', days_path %>
