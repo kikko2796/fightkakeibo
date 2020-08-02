@@ -1,4 +1,6 @@
+   <!--
    <h1>家計簿</h1>
+   -->
  <table>
   <thead>
     <h3>一覧</h3>
@@ -7,7 +9,7 @@
     <td>科目</td>
     <td>金額</td>
     <td>摘要</td>
-    <td>相手科目</td>
+   
    </tr>
   </thead>
   <tbody>
@@ -17,7 +19,7 @@
      <td><%= day.name %></td>
      <td><%= day.value %></td>
      <td><%= day.detail %></td>
-     <td><%= day.asset %></td>
+     
      <td><%= link_to '編集', edit_day_path(day) %></td>
      <td><%= link_to '削除', day_path(day), method: :delete %></td>
     </tr>
