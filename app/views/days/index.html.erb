@@ -34,3 +34,20 @@
    </tfoot>
  </table>
    <%= link_to '家計登録', new_day_path %>
+
+   <%= form_tag(days_path, :method => "get") do %>
+    <%= text_field_tag :search %>
+    <!--
+    <%= select_tag 'name', options_for_select(
+      '給与' =>1,'その他'=>2,'食費'=>3,'消耗品'=>4,'ペット'=>5,'ま'=>6,'き'=>7,
+      'ガス'=>8,'電気'=>9,'水道'=>10,'ドコモ'=>11,'NTT'=>12,'生保'=>13,'損保'=>14,
+      '仕事関係'=>15,'教養娯楽'=>16,'交際'=>17,'衣料'=>18,'医療'=>19,'車関係'=>20,'税金'=>21,'雑費'=>22,'特別'=>23) %>
+    -->
+
+    <%= submit_tag "Search" ,class: "button is-info"%> 
+   <% end %> 
+   
+   <% @days.each do |day| %>
+    <% end %> 
+
+    <%= link_to '戻る', days_path %>

@@ -1,6 +1,7 @@
 class DaysController < ApplicationController
     def index
       @days = Day.all
+      @days = Day.search(params[:search])
     end
 
     def new
@@ -29,20 +30,31 @@ class DaysController < ApplicationController
     end
 
     #resultページを追加
-    def daysresult 
-    end
+    #def result
+    #end
 
-    #subsページを追加
-    def dayssubs
-        
-    end
+    #searchページを追加
+    #def search
+        #viewのformで取得したパラメータをモデルに渡す
+       # @days = Day.search(params[:search])
+    #end
+    #def searchlist
+     #   @days = Day.search(params[:search])
+    #end
 
-    def group
-        @days = Day.group("MONTH(date)").sum(:value)
-    end
+    #subslistを作成
+    #def dayssubslist
+        #@days = Day.where('name = ? AND date >= ?',
+        #params[:name], params[:date])
+        #render 'days/dayssubslist'
+    #end
 
-    private
-    def day_params
-        params.require(:day).permit(:date, :name, :value, :detail)
-    end
+    #def group
+     #   @days = Day.group("MONTH(date)").sum(:value)
+    #end
+
+     private
+      def day_params
+       params.require(:day).permit(:date, :name, :value, :detail)
+      end
 end
