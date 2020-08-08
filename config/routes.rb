@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :days do
+  #resources :days, only: [:index, :show] do
+    collection do
+      get :search
+    end
+  end
+
   #search(科目明細検索)ページを追加
    #collection do
     #get :search
@@ -19,5 +25,4 @@ Rails.application.routes.draw do
 
     #get 'days/daysubs', to: 'days#daysubs'
     #post 'days/daysubs', to: 'days#daysubslist'
-  end
 end

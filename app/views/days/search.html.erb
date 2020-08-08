@@ -1,0 +1,23 @@
+<table>
+<%= form_with(scope: :search, url:search_days_path, method: :get, local: true) do |f| %>
+    <%= f.label :date, "年月"%>
+    <%= f.date_field :date, value: @search_params[:date] %>
+    <%= f.label :name, "科目" %>
+    <%= f.text_field :name, value: @search_params[:name] %>
+<%= submit_tag '検索', class: "button" %>
+<% end %>
+
+<% unless @search_params.blank? %>
+ 
+ <% @days.each do |day| %>  
+    <tr>
+     <td><%= day.date %></td>
+     <td><%= day.name %></td>
+     <td><%= day.value %></td>
+     <td><%= day.detail %></td>
+    </tr>
+ <% end %>
+ <% end %>
+</table>
+
+ <%= link_to '一覧に戻る', days_path %>

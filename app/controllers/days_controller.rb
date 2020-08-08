@@ -1,7 +1,7 @@
 class DaysController < ApplicationController
     def index
       @days = Day.all
-      @days = Day.search(params[:search])
+      #@days = Day.search(params[:search])
     end
 
     def new
@@ -27,6 +27,11 @@ class DaysController < ApplicationController
         @day = Day.find (params[:id])
         @day.destroy
         redirect_to days_path
+    end
+
+    def search
+        @search_params = day_search_params
+        @days = Day.search(@search_params)
     end
 
     #resultページを追加
@@ -56,5 +61,9 @@ class DaysController < ApplicationController
      private
       def day_params
        params.require(:day).permit(:date, :name, :value, :detail)
+      end
+
+      def day_search_params
+        params.fetch(:search,{}).permit(:name, :date, :value, :datail)
       end
 end

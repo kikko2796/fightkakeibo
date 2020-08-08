@@ -28,14 +28,5 @@
    
  </table>
    <%= link_to '家計登録', new_day_path %>
-
-    <%= form_tag(days_path, :method => "get") do %>
-    <%= label :name, "科目" %>
-    <%= text_field_tag :search %>
-　　 <%= submit_tag "科目検索"%> 
-    <% end %> 
-   
-   <% @days.each do |day| %>
-    <% end %> 
-
-    <%= link_to '一覧に戻る', days_path %>
+   <%= link_to '科目検索', search_days_path %>
+    
