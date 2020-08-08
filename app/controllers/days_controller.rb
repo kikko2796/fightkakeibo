@@ -1,6 +1,6 @@
 class DaysController < ApplicationController
     def index
-      @days = Day.all
+      @days = Day.all.order(year_month: :desc)
       #@days = Day.search(params[:search])
     end
 
@@ -31,7 +31,7 @@ class DaysController < ApplicationController
 
     def search
         @search_params = day_search_params
-        @days = Day.search(@search_params)
+        @days = Day.search(@search_params).order('year_month desc')
     end
 
     #resultページを追加
