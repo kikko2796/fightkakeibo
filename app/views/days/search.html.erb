@@ -1,6 +1,7 @@
+<h2>科目検索</h2>
 <table>
 <%= form_with(scope: :search, url:search_days_path, method: :get, local: true) do |f| %>
-    <%= f.label :date, "年月"%>
+    <%= f.label :yearmonth, "年月"%>
     <%= f.number_field :year_month, value: @search_params[:date] %>
     <%= f.label :name, "科目" %>
     <%= f.text_field :name, value: @search_params[:name] %>
