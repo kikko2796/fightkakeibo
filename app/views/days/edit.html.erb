@@ -1,7 +1,7 @@
 <h1>家計編集</h1>
 <%= form_for(@day) do |f| %>
     <div><%= f.label :日付 %></div>
-    <div><%= f.date_field :date %></div>
+    <div><%= f.number_field :year_month %></div>
     <div><%= f.label :科目 %></div>
     <div><%= f.select :name, [
         '給与','その他','食費','消耗品','ペット','ま','き',

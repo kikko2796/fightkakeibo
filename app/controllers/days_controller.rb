@@ -60,10 +60,10 @@ class DaysController < ApplicationController
 
      private
       def day_params
-       params.require(:day).permit(:date, :name, :value, :detail)
+       params.require(:day).permit(:year_month, :name, :value, :detail)
       end
 
       def day_search_params
-        params.fetch(:search,{}).permit(:name, :date, :value, :datail)
+        params.fetch(:search,{}).permit(:name, :year_month, :value, :datail)
       end
 end
