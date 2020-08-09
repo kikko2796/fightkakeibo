@@ -1,8 +1,8 @@
 <h2>科目検索</h2>
 <table>
 <%= form_with(scope: :search, url:search_days_path, method: :get, local: true) do |f| %>
-    <%= f.label :yearmonth, "年月"%>
-    <%= f.number_field :year_month, value: @search_params[:date] %>
+    <%= f.label :year_month, "年月"%>
+    <%= f.number_field :year_month, value: @search_params[:year_month] %>
     <%= f.label :name, "科目" %>
     <%= f.text_field :name, value: @search_params[:name] %>
 <%= submit_tag '検索', class: "button" %>
@@ -20,5 +20,7 @@
  <% end %>
  <% end %>
 </table>
+<%= will_paginate @days,
+ previous_label: '＜前ページ',next_label: '次ページ＞' %>
 
  <%= link_to '一覧に戻る', days_path %>
