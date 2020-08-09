@@ -1,4 +1,5 @@
 class Day < ApplicationRecord
+    
     scope :search, -> (search_params) do
         name_like(search_params[:name])
         year_month_like(search_params[:year_month])
