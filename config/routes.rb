@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     collection do
       get :search
     end
+    collection do
+      get :mtotal
+    end
   end
 
   #search(科目明細検索)ページを追加

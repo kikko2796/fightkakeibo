@@ -1,0 +1,12 @@
+<h2>集計表</h2>
+<table>
+ <tr>
+  <th>科目</th><th>金額</th>
+ </tr>
+ <% @days.each do |day| %>
+ <tr>
+    <td><%= day.name %></td>
+    <td><%= day.sum_value %></td>
+ </tr>
+ <% end %>
+</table>

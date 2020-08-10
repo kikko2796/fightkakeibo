@@ -31,5 +31,6 @@
  previous_label: '＜前ページ',next_label: '次ページ＞' %>
  
    <%= link_to '家計登録', new_day_path %>
-   
+  <!--一度で検索できるようにする-->
    <%= link_to "科目検索", search_days_path, data: {"turbolinks" => false} %>
+   <%= link_to "集計表", mtotal_days_path, data: {"turbolinks" => false} %>
