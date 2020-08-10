@@ -1,12 +1,19 @@
 <h2>集計表</h2>
-<table>
- <tr>
-  <th>科目</th><th>金額</th>
- </tr>
- <% @days.each do |day| %>
- <tr>
-    <td><%= day.name %></td>
-    <td><%= day.sum_value %></td>
- </tr>
+
+ <%= form_tag(mtotal_days_path,method: :post) do %>
+    <%= label_tag :年月 %>
+    <%= number_field_tag :year_month %> 
+    
+ <%= submit_tag '検索', class: "button" %>
  <% end %>
-</table>
+ 
+ 
+ <% @days.each do |day| %>
+ 
+    <%= day.name %>
+    <%= day.sum_value %></br>
+ 
+ <% end %>
+
+
+<%= link_to '一覧に戻る', days_path %>

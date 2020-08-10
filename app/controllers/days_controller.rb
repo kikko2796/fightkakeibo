@@ -36,10 +36,14 @@ class DaysController < ApplicationController
 
     def mtotal #月ごとの集計
         #@days = Day.group(:year_month AND :name).sum(:value)
-        @days = Day.select('name,SUM(value) AS sum_value').group(:name)
-        #@days = Day.group("year_month" AND "name").sum(:value)
+     @days = Day.select('name,SUM(value) AS sum_value').group(:name)
+        #@days = Day.select('name AND year_month, SUM(value) AS sum_value').group(:name AND :year_month)
+        #@days = Day.group(:year_month, :name).sum(:value)
+        #@days = Day.where(year_month: '202001').pluck(:name,:value)
+        #@days = Day.group_by{|day| [day[:year_month], day[:name]]}.value
     end
 
+    
 
     
     #resultページを追加
