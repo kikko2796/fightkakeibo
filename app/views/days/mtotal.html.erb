@@ -7,7 +7,8 @@
 <option value="2019">2019</option>
 <option value="2020">2020</option>
 <option value="2021">2021</option>
-<option value="2022">2022</option>
+<option value="2022">2022</option>,
+
 </select>
 <%= label_tag(:year,"年") %>
 <select name="month">
@@ -28,16 +29,16 @@
  <%= submit_tag("検索") %>
  <% end %>
  </table>
+ 
  <table>
+
+ <%= @days_total%>
+ <!--
+ <%= @days.name%>
  <% @days.each do |day| %>
- 
-    <%= day.year %>
-    <%= day.month %>
-    <%= day.name %>
-    <%= day.value %></br>
-    <%= @days_total %>
- <% end %>
- 
+   <%= @days_total %>
+   <% end %>
+ -->
  </table>
 
 <table>
