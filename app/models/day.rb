@@ -2,11 +2,11 @@ class Day < ApplicationRecord
     
     scope :search, -> (search_params) do
 
-    name_like(search_params[:name])
-    .year_like(search_params[:year])
-    .month_like(search_params[:month]) 
+     name_like(search_params[:name])
+     .year_like(search_params[:year])
+     .month_like(search_params[:month]) 
     #行頭の.で繋げている
-end
+    end
 
     scope :name_like, ->(name) { where('name LIKE ?',"%#{name}%")if name.present?}
     scope :year_like, ->(year) { where('year LIKE ?',"%#{year}%")if year.present?}
