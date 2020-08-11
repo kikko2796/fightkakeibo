@@ -1,0 +1,39 @@
+
+<table>
+    <h3>年間集計表</h3>
+</table>
+<table>
+<%= form_tag("/days/ytotal",method: "get") do %>
+
+
+<select name="year">
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+</select>
+<%= label_tag(:year,"年") %>
+
+ <%= submit_tag("検索") %>
+ <% end %>
+ </table>
+
+ <table>
+   <tr>
+    <td>月</td>
+    <td>科目</td>
+    <td>金額</td>
+   </tr>
+  </table>
+
+ <table>
+ <% @days.each do |day| %>
+  <%= day.month %>
+  <%= day.name %>
+  <%= day.value %></br>
+ <% end %>
+ </table>
+
+<table>
+<%= link_to '一覧に戻る', days_path %>
+</table>

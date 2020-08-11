@@ -1,10 +1,29 @@
 <h2>月間集計表</h2>
+
 <table>
 <%= form_tag("/days/mtotal",method: "get") do %>
-
-<%= number_field_tag(:year) %>
+   
+<select name="year">
+<option value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+</select>
 <%= label_tag(:year,"年") %>
-<%= number_field_tag(:month) %>
+<select name="month">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
 <%= label_tag(:month,"月") %>
  <%= submit_tag("検索") %>
  <% end %>
@@ -16,7 +35,9 @@
     <%= day.month %>
     <%= day.name %>
     <%= day.value %></br>
+    <%= @days_total %>
  <% end %>
+ 
  </table>
 
 <table>
