@@ -4,6 +4,7 @@
 <%= form_tag("/days/mtotal",method: "get") do %>
    
 <select name="year">
+<option value="">選択してください</option>
 <option value="2019">2019</option>
 <option value="2020">2020</option>
 <option value="2021">2021</option>
@@ -12,6 +13,7 @@
 </select>
 <%= label_tag(:year,"年") %>
 <select name="month">
+<option value="">選択してください</option>
 <option value="1">1</option>
 <option value="2">2</option>
 <option value="3">3</option>
@@ -31,6 +33,11 @@
  </table>
  
  <table>
+ <tr>
+ <td><%= "#{params[:year]}" %>年</td>
+ <td><%= "#{params[:month]}" %>月</td>
+</tr>
+</table>
 
  <%= @days_total%>
  <!--
