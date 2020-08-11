@@ -36,7 +36,7 @@ class DaysController < ApplicationController
 
     def mtotal #月ごとの集計
         #@days = Day.group(:year_month AND :name).sum(:value)
-  @days = Day.where("year LIKE ?", params[:year])
+  @days = Day.where('year = ? AND month =?', params[:year], params[:month])
     # @days = Day.select('name,SUM(value) AS sum_value').group(:name)
         #@days = Day.select('name AND year_month, SUM(value) AS sum_value').group(:name AND :year_month)
         #@days = Day.group(:year_month, :name).sum(:value)

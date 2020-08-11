@@ -1,18 +1,24 @@
-<h2>集計表</h2>
+<h2>月間集計表</h2>
+<table>
 <%= form_tag("/days/mtotal",method: "get") do %>
-<%= label_tag(:year_month,"年月") %>
-<%= number_field_tag(:year_month) %>
+
+<%= number_field_tag(:year) %>
+<%= label_tag(:year,"年") %>
+<%= number_field_tag(:month) %>
+<%= label_tag(:month,"月") %>
  <%= submit_tag("検索") %>
  <% end %>
- 
- 
+ </table>
+ <table>
  <% @days.each do |day| %>
  
+    <%= day.year %>
+    <%= day.month %>
     <%= day.name %>
-    <%= day.year_month %></br>
-    
- 
+    <%= day.value %></br>
  <% end %>
+ </table>
 
-
+<table>
 <%= link_to '一覧に戻る', days_path %>
+</table>
