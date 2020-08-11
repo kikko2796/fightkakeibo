@@ -1,17 +1,16 @@
 <h2>集計表</h2>
-
- <%= form_tag(mtotal_days_path,method: :post) do %>
-    <%= label_tag :年月 %>
-    <%= number_field_tag :year_month %> 
-    
- <%= submit_tag '検索', class: "button" %>
+<%= form_tag("/days/mtotal",method: "get") do %>
+<%= label_tag(:year_month,"年月") %>
+<%= number_field_tag(:year_month) %>
+ <%= submit_tag("検索") %>
  <% end %>
  
  
  <% @days.each do |day| %>
  
     <%= day.name %>
-    <%= day.sum_value %></br>
+    <%= day.year_month %></br>
+    
  
  <% end %>
 

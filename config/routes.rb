@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
     collection do
       get :mtotal
+    
     end
     
   end
