@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_08_101207) do
+ActiveRecord::Schema.define(version: 2020_08_11_021325) do
 
   create_table "days", force: :cascade do |t|
-    t.integer "year_month"
     t.string "name"
     t.integer "value"
     t.string "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "year"
+    t.integer "month"
   end
 
 end

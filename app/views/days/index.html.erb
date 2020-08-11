@@ -5,7 +5,8 @@
   <thead>
     <h3>一覧</h3>
    <tr>
-    <td>年月</td>
+    <td>年</td>
+    <td>月</td>
     <td>科目</td>
     <td>金額</td>
     <td>摘要</td>
@@ -15,7 +16,8 @@
   <tbody>
    <% @days.each do |day| %>
     <tr>
-     <td><%= day.year_month %></td>
+     <td><%= day.year %></td>
+     <td><%= day.month %></td>
      <td><%= day.name %></td>
      <td><%= day.value %></td>
      <td><%= day.detail %></td>

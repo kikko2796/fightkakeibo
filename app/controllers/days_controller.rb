@@ -1,6 +1,6 @@
 class DaysController < ApplicationController
     def index
-      @days = Day.all.order(year_month: :desc).paginate(page: params[:page], per_page: 15)
+      @days = Day.all.order(year: :desc).paginate(page: params[:page], per_page: 15)
       #@days = Day.search(params[:search])
     end
 
@@ -31,12 +31,12 @@ class DaysController < ApplicationController
 
     def search #科目検索
         @search_params = day_search_params
-        @days = Day.search(@search_params).order('year_month desc').paginate(page: params[:page], per_page: 15)
+        @days = Day.search(@search_params).paginate(page: params[:page], per_page: 15)
     end
 
     def mtotal #月ごとの集計
         #@days = Day.group(:year_month AND :name).sum(:value)
-  @days = Day.where("year_month LIKE ?", params[:year_month])
+  @days = Day.where("year LIKE ?", params[:year])
     # @days = Day.select('name,SUM(value) AS sum_value').group(:name)
         #@days = Day.select('name AND year_month, SUM(value) AS sum_value').group(:name AND :year_month)
         #@days = Day.group(:year_month, :name).sum(:value)
@@ -73,11 +73,11 @@ class DaysController < ApplicationController
 
      private
       def day_params
-       params.require(:day).permit(:year_month, :name, :value, :detail)
+       params.require(:day).permit(:year, :month, :name, :value, :detail)
       end
 
       def day_search_params
-        params.fetch(:search,{}).permit(:name, :year_month, :value, :datail)
+        params.fetch(:search,{}).permit(:name, :year, :month, :value, :datail)
       end
 
     end

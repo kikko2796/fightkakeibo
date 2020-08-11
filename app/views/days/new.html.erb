@@ -1,7 +1,9 @@
 <h1>家計登録</h1>
 <%= form_for(@day) do |f| %>
-    <div><%= f.label :年月 %></div>
-    <div><%= f.number_field :year_month %></div>
+    <div><%= f.label :年 %></div>
+    <div><%= f.number_field :year %></div>
+    <div><%= f.label :月 %></div>
+    <div><%= f.number_field :month %></div>
     <div><%= f.label :科目 %></div>
     <div><%= f.select :name, [
         '給与','その他','食費','消耗品','ペット','ま','き',
