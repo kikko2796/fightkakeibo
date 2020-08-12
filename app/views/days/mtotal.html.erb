@@ -41,7 +41,10 @@
 </table>
 
 <table>
-  <%= @days_total%>
+
+  <% @days_total.each do |k,v|%>
+    <%= "#{k} = #{v}" %>
+   <% end %>
 
 </table>
  
