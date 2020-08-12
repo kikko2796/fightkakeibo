@@ -20,37 +20,19 @@
 <table>
    <tr>
     <td><%= "#{params[:year]}" %>年</td>
-    
    </tr>
+   <td>合計</td>
 </table>
 
 <table>
 
-<% @days_total.each do |k,v| %>
-   <%= "#{k} = #{v}" %> 
+<% @days_total.each do |day_total| %>
+   <tr>
+   <td><%= day_total %></td>
+  
      <% end %>
-
-
-<%
-=begin
-%>
- <% @days_total.each do |k,v| %>
-   <%= "#{k} = #{v}" %> 
-     <% end %>
- <% @days_total.each_slice(2) do |k,v|%> 
-       <%= "#{k}" %>
-      <%= "#{v}" %>   
-  <% @days_total.each do |k,v|%>
-  <%= "#{k} = #{v}" %>
-  <% end %
-  <% @days.each do |day| %>
-  <%= day.month %>
-  <%= day.name %>
-  <%= day.value %></br>
-  <% end %>
-<%
-=end
-%>
+   </tr>
+   <%= @days_sum %>
 
 </table>
 

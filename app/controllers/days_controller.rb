@@ -39,18 +39,20 @@ class DaysController < ApplicationController
          @days = Day.where('year = ? AND month =?', params[:year], params[:month]).group(:name)
          
          @days_total = Day.where('year = ? AND month =?', params[:year], params[:month]).group(:name).sum(:value)
-        # @days = Day.select('name,SUM(value) AS sum_value').group(:name)
-        #@days = Day.select('name AND year_month, SUM(value) AS sum_value').group(:name AND :year_month)
-        #@days = Day.group(:year_month, :name).sum(:value)
-        #@days = Day.where(year_month: '202001').pluck(:name,:value)
-        #@days = Day.group_by{|day| [day[:year_month], day[:name]]}.value
-        #@days_total = Day.where('year = ? AND month =?', params[:year], params[:month]).sum(:value)
-        
+         hash = @days_total
+         array = hash.values
+         @days_sum = array.sum
+         
+         
+         
     end
 
     def ytotal
         @days = Day.where('year = ?', params[:year]).group(:name)
         @days_total = Day.where('year = ?', params[:year]).group(:name).sum(:value)
+        hash = @days_total
+        array = hash.values
+        @days_sum = array.sum
     end
 
     
