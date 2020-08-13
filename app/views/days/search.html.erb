@@ -1,22 +1,30 @@
-<h2>科目検索</h2>
+<h2 class="kakeitouroku">科目検索</h2>
 <table>
    <%= form_with(scope: :search, url:search_days_path, method: :get, local: true) do |f| %>
-   <%= f.label :name, "科目" %>
+   <div><%= f.label :name, "科目" %>
    <%= f.select :name, [
         '給与','その他','食費','消耗品','ペット','ま','き',
         'ガス','電気','水道','ドコモ','NTT','生保','損保',
         '仕事関係','教養娯楽','交際','衣料','医療','車関係','税金','雑費','特別'
-        ],{ include_blank: '選択してください'},{value: @search_params[:name]} %>
-    <%= f.select :year,['2019','2020','2021','2022'],{ include_blank: '選択してください'}, {value: @search_params[:year]}%>
-    <%= f.label :year, "年"%>
-    <%= f.select :month,['1','2','3','4','5','6','7','8','9','10','11','12'], { include_blank: '選択してください'},{value: @search_params[:month]}%>
-    <%= f.label :month, "月"%>
+        ],{ include_blank: '選択してください'},{value: @search_params[:name]} %></div>
+    <div><%= f.select :year,['2019','2020','2021','2022'],{ include_blank: '選択してください'}, {value: @search_params[:year]}%>
+    <%= f.label :year, "年"%></div>
+    <div><%= f.select :month,['1','2','3','4','5','6','7','8','9','10','11','12'], { include_blank: '選択してください'},{value: @search_params[:month]}%>
+    <%= f.label :month, "月"%></div>
         
     <%= submit_tag '検索', class: "button" %>
     <% end %>
+</table>
 
-    <% unless @search_params.blank? %>
- 
+<table class="kensaku"border="1">
+<% unless @search_params.blank? %>
+<tr class="koumoku" >
+ <th>年</th>
+ <th>月</th>
+ <th>科目</th>
+ <th>金額</th>
+ <th>摘要</th>
+ </tr>
     <% @days.each do |day| %>  
      <tr>
       <td><%= day.year %></td>

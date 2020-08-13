@@ -1,7 +1,7 @@
+<header>
+<h2 class="kakeitouroku">年間集計表</h2>
+</header>
 
-<table>
-    <h3>年間集計表</h3>
-</table>
 <table>
  <%= form_tag("/days/ytotal",method: "get") do %>
     <select name="year">
@@ -17,23 +17,16 @@
  <% end %>
 </table>
 
-<table>
+　<table class="kensaku"border="1">
    <tr>
     <td><%= "#{params[:year]}" %>年</td>
    </tr>
-   <td>合計</td>
-</table>
-
-<table>
-
-<% @days_total.each do |day_total| %>
-   <tr>
+ 　　<% @days_total.each do |day_total| %>
+　<tr>
    <td><%= day_total %></td>
-  
-     <% end %>
-   </tr>
-   <%= @days_sum %>
-
+    <% end %>
+　</tr>
+  　<td>合計<%= @days_sum%></td>
 </table>
 
 <table>

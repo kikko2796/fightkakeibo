@@ -1,9 +1,12 @@
-<h2>月間集計表</h2>
+<header>
+<h2 class="kakeitouroku">月間集計表</h2>
+</header>
+
 
 <table>
 <%= form_tag("/days/mtotal",method: "get") do %>
    
-  <select name="year">
+ <div> <select name="year">
   <option value="">選択してください</option>
   <option value="2019">2019</option>
   <option value="2020">2020</option>
@@ -11,8 +14,9 @@
   <option value="2022">2022</option>
 　</select>
 
-<%= label_tag(:year,"年") %>
-  <select name="month">
+<%= label_tag(:year,"年") %></div>
+
+ <div> <select name="month">
   <option value="">選択してください</option>
   <option value="1">1</option>
   <option value="2">2</option>
@@ -27,30 +31,27 @@
   <option value="11">11</option>
   <option value="12">12</option>
   </select>
-<%= label_tag(:month,"月") %>
+<%= label_tag(:month,"月") %></div>
 
 <%= submit_tag("検索") %>
 <% end %>
 </table>
  
-<table>
+<table class="kensaku"border="1">
  <tr>
-  <td><%= "#{params[:year]}" %>年</td>
-  <td><%= "#{params[:month]}" %>月</td><br/>
+  <td><%= "#{params[:year]}" %>年
+  <%= "#{params[:month]}" %>月</td><br/>
  </tr>
- <td>合計</td>
-</table>
 
-<table>
+<% @days_total.sort %>
 <% @days_total.each do |day_total| %>
   <tr>
+
   <td><%= day_total %></td>
  
     <% end %>
   </tr>
- 
-  <%= @days_sum %>
-
+  <td>合計<%= @days_sum%></td>
 </table>
  
  <!--
@@ -63,7 +64,7 @@
    <% end %>
  -->
  
-
+ 
 <table>
 <%= link_to '一覧に戻る', days_path %>
 </table>

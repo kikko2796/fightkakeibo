@@ -1,6 +1,6 @@
 class DaysController < ApplicationController
     def index
-      @days = Day.all.order(year: :desc).paginate(page: params[:page], per_page: 15)
+      @days = Day.all.order(year: :desc).paginate(page: params[:page], per_page: 20)
       #@days = Day.search(params[:search])
     end
 

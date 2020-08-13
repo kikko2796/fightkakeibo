@@ -1,41 +1,43 @@
-   
-   <h1>家計簿</h1>
-   
- <table>
-
-  <thead>
-    <h3>一覧</h3>
+  <header>
+   <h1 class="pagetitle">家 計 簿</h1>
+  </header> 
+  <section class="link">
    <tr>
-    <td>年</td>
-    <td>月</td>
-    <td>科目</td>
-    <td>金額</td>
-    <td>摘要</td>
-   </tr>
-  </thead>
-
-  <tbody>
-   <% @days.each do |day| %>
-   <tr>
-     <td><%= day.year %></td>
-     <td><%= day.month %></td>
-     <td><%= day.name %></td>
-     <td><%= day.value %></td>
-     <td><%= day.detail %></td>
-     
-     <td><%= link_to '編集', edit_day_path(day) %></td>
-     <td><%= link_to '削除', day_path(day), method: :delete %></td>
-    </tr>
-   <% end %>
-  </tbody>
-   
- </table>
-  <%= will_paginate @days,
-  previous_label: '＜前ページ',next_label: '次ページ＞' %>
- 
-   <%= link_to '家計登録', new_day_path %>
-  
+    <td ><%= link_to '＜家計登録へ＞', new_day_path %></td>
    <!--一度で検索できるようにする-->
-   <%= link_to "科目検索", search_days_path, data: {"turbolinks" => false} %>
-   <%= link_to "月間集計表", mtotal_days_path, data: {"turbolinks" => false} %>
-   <%= link_to "年間集計表", ytotal_days_path, data: {"turbolinks" => false} %>
+    <td><%= link_to "＜科目検索へ＞", search_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜月間集計表へ＞", mtotal_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜年間集計表へ＞", ytotal_days_path, data: {"turbolinks" => false} %></td>
+    <%= will_paginate @days,previous_label: '＜前ページ',next_label: '次ページ＞' %>
+   </tr>
+ </section>  
+  
+  
+ <table class ="itiran" border="1">
+   <caption class="saimoku">家　 計 　細 　目　 一　 覧</caption>
+    <thead>
+      <tr class="koumoku">
+        <th>年</th>
+        <th>月</th>
+        <th>科目</th>
+        <th>金額</th>
+        <th>摘要</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @days.each do |day| %>
+      <tr>
+        <td><%= day.year %></td>
+        <td><%= day.month %></td>
+        <td><%= day.name %></td>
+        <td><%= day.value %></td>
+        <td><%= day.detail %></td>
+        <td><%= link_to '編集', edit_day_path(day) %></td>
+        <td><%= link_to '削除', day_path(day), method: :delete %></td>
+      </tr>
+      <% end %>
+   </tbody>
+</table> 
+
+ 
