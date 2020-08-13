@@ -1,7 +1,16 @@
 <header>
 <h2 class="kakeitouroku">年間集計表</h2>
 </header>
-
+<table>
+<tr>
+    <td><%= link_to '＜家計一覧へ＞', days_path %></td>
+    <td ><%= link_to '＜家計登録へ＞', new_day_path %></td>
+   <!--一度で検索できるようにする-->
+    <td><%= link_to "＜科目検索へ＞", search_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜月間集計表へ＞", mtotal_days_path, data: {"turbolinks" => false} %></td>
+ <!--<td><%= link_to "＜年間集計表へ＞", ytotal_days_path, data: {"turbolinks" => false} %></td>-->
+</tr>
+</table>
 <table>
  <%= form_tag("/days/ytotal",method: "get") do %>
     <select name="year">
@@ -17,18 +26,19 @@
  <% end %>
 </table>
 <table>
- <%= link_to '家計一覧へ', days_path %>
+
 </table>
 
 　<table class="kensaku"border="1">
    <tr>
-    <td><%= "#{params[:year]}" %>年</td>
+    <td colspan="2"><%= "#{params[:year]}" %>年</td>
    </tr>
  　　<% @days_total.each do |day_total| %>
 　<tr>
-   <td><%= day_total %></td>
+   <td><%= day_total[0] %></td>
+   <td><%= day_total[1] %></td>
     <% end %>
 　</tr>
-  　<td>合計<%= @days_sum%></td>
+  　<td colspan="2">合計<%= @days_sum%></td>
 </table>
 

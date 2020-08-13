@@ -34,7 +34,7 @@ class DaysController < ApplicationController
         @days = Day.search(@search_params).paginate(page: params[:page], per_page: 15)
     end
 
-    def mtotal #月ごとの集計
+    def mtotal #月間集計
         
          @days = Day.where('year = ? AND month =?', params[:year], params[:month]).group(:name)
          
@@ -47,7 +47,7 @@ class DaysController < ApplicationController
          
     end
 
-    def ytotal
+    def ytotal #年間集計
         @days = Day.where('year = ?', params[:year]).group(:name)
         @days_total = Day.where('year = ?', params[:year]).group(:name).sum(:value)
         hash = @days_total

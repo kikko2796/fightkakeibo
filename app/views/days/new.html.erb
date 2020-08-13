@@ -1,6 +1,10 @@
 <header>
 <h2 class="kakeitouroku">家計登録</h2>
 </header>
+    <%= link_to '＜家計一覧へ＞', days_path %>
+    <%= link_to "＜科目検索へ＞", search_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜月間集計表へ＞", mtotal_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜年間集計表へ＞", ytotal_days_path, data: {"turbolinks" => false} %></td>
 
 
     <%= form_for(@day) do |f| %>
@@ -21,4 +25,4 @@
 
     <dib><%= f.submit '家計登録' %></div>
 <% end %>
-    <%= link_to '家計一覧へ', days_path %>
+

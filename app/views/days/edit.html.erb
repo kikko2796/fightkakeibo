@@ -1,24 +1,28 @@
-<h1>家計編集</h1>
+<header>
+<h2 class="kakeitouroku">家計編集</h2>
+</header>
+    <%= link_to '＜家計一覧へ＞', days_path %>
+    <%= link_to "＜科目検索へ＞", search_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜月間集計表へ＞", mtotal_days_path, data: {"turbolinks" => false} %></td>
+    <td><%= link_to "＜年間集計表へ＞", ytotal_days_path, data: {"turbolinks" => false} %></td>
+
 <%= form_for(@day) do |f| %>
-    <div><%= f.label :年 %></div>
-    <div><%= f.number_field :year %></div>
-    <div><%= f.label :月 %></div>
-    <div><%= f.number_field :month %></div>
-    <div><%= f.label :科目 %></div>
-    <div><%= f.select :name, [
-        '給与','その他','食費','消耗品','ペット','ま','き',
-        'ガス','電気','水道','ドコモ','NTT','生保','損保',
-        '仕事関係','教養娯楽','交際','衣料','医療','車関係','税金','雑費','特別'
-        ] %></div>
-    <div><%= f.label :金額 %></div>
-    <div><%= f.number_field :value %></div>
-    <div><%= f.label :詳細 %></div>
-    <div><%= f.text_field :detail %></div>
     
-    
+        <div><%= f.select :year,['2019','2020','2021','2022'],{},{class: 'form_new'} %><%= f.label :年 %>
+        
+        <%= f.select :month,['1','2','3','4','5','6','7','8','9','10','11','12'],{},{class: 'form_new'} %><%= f.label :月 %></div>
+        <div><%= f.label :科目 %>
+        <%= f.select :name, [
+            '','給与','その他','食費','消耗品','ペット','ま','き',
+            'ガス','電気','水道','ドコモ','NTT','生保','損保',
+            '仕事関係','教養娯楽','交際','衣料','医療','車関係','税金','雑費','特別'
+            ],{},{class: 'form_new'}%></div>
+        <div><%= f.label :金額 %>
+        <%= f.number_field :value %></div>
+        <div><%= f.label :詳細 %>
+        <%= f.text_field :detail %></div> 
 
-
-    <dib><%= f.submit '編集' %></div>
+    <div><%= f.submit '編集' %></div>
 <% end %>
 
-    <%= link_to '戻る', days_path %>
+  
