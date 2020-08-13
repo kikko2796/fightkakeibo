@@ -16,6 +16,9 @@
   <%= submit_tag("検索") %>
  <% end %>
 </table>
+<table>
+ <%= link_to '家計一覧へ', days_path %>
+</table>
 
 　<table class="kensaku"border="1">
    <tr>
@@ -29,6 +32,3 @@
   　<td>合計<%= @days_sum%></td>
 </table>
 
-<table>
- <%= link_to '一覧に戻る', days_path %>
-</table>
