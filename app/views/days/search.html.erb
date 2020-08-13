@@ -15,6 +15,9 @@
     <%= submit_tag '検索', class: "button" %>
     <% end %>
 </table>
+<%= will_paginate @days,previous_label: '＜前ページ',next_label: '次ページ＞' %>
+
+<%= link_to '家計一覧へ', days_path %>
 
 <table class="kensaku"border="1">
 <% unless @search_params.blank? %>
@@ -36,7 +39,4 @@
     <% end %>
    <% end %>
 </table>
-   <%= will_paginate @days,
-   previous_label: '＜前ページ',next_label: '次ページ＞' %>
-
-   <%= link_to '家計一覧へ', days_path %>
+  
