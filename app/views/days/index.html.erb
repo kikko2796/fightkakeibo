@@ -8,7 +8,7 @@
     <td><%= link_to "＜科目検索へ＞", search_days_path, data: {"turbolinks" => false} %></td>
     <td><%= link_to "＜月間集計表へ＞", mtotal_days_path, data: {"turbolinks" => false} %></td>
     <td><%= link_to "＜年間集計表へ＞", ytotal_days_path, data: {"turbolinks" => false} %></td>
-    <%= will_paginate @days,previous_label: '＜前ページ',next_label: '次ページ＞' %>
+    <a><%= will_paginate @days,previous_label: '＜前ページ',next_label: '次ページ＞' %></a>
    </tr>
  </section>  
   
